@@ -12,18 +12,8 @@
 
 module Cnab150
   class Header
-    def self.parse(line)
-      h = new(line)
-      fail ArgumentError, 'Line size is lesser than 150 chars' unless h.valid?
-      h.to_hash
-    end
-
-    def initialize(line)
-      @line = line
-    end
-
-    def valid?
-      @line.size.eql?(150)
+    def initialize(line, parse=Cnab150::Parser)
+      @line, @parse = line, parse
     end
 
     def to_hash
@@ -37,18 +27,19 @@ module Cnab150
         file_date:     column[6],
         file_number:   column[7],
         version:       column[8],
-        service:       column[9]
+        service:       column[9],
+        filler:        column[10]
       }
     end
 
     private
 
     def column
-      @_process ||= @line.unpack(layout)
+      @_ ||= @parse.to_a(@line, layout)
     end
 
     def layout
-      "A" + [1, 1, 20, 20, 3, 20, 8, 6, 2, 17].join("A")
+      "A" + [1, 1, 20, 20, 3, 20, 8, 6, 2, 17, 52].join("A")
     end
   end
 end

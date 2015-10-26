@@ -1,4 +1,5 @@
 require "cnab150/version"
+require "cnab150/parser"
 require "cnab150/header"
 
 
