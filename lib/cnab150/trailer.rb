@@ -10,18 +10,17 @@ module Cnab150
     end
 
     def to_hash
-      {
-        registry_code: column[0],
-        rows:          column[1],
-        total:         column[2],
-        filler:        column[3]
-      }
+      values.to_hash(keys)
     end
 
     private
 
-    def column
-      @_ ||= @parse.to_a(@line, layout)
+    def keys
+      [:registry_code, :rows, :total, :filler]
+    end
+
+    def values
+      @_ ||= @parse.build(@line, layout)
     end
 
     def layout

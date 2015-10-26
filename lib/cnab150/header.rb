@@ -17,29 +17,26 @@ module Cnab150
     end
 
     def to_hash
-      {
-        registry_code: column[0],
-        registry_type: column[1],
-        agreement:     column[2],
-        organization:  column[3],
-        bank_code:     column[4],
-        bank_name:     column[5],
-        file_date:     column[6],
-        file_number:   column[7],
-        version:       column[8],
-        service:       column[9],
-        filler:        column[10]
-      }
+      values.to_hash(keys)
     end
 
     private
 
-    def column
-      @_ ||= @parse.to_a(@line, layout)
+    def values
+      @_ ||= @parse.build(@line, layout)
+    end
+
+    def keys
+      [:registry_code , :registry_type ,
+       :agreement     , :organization  ,
+       :bank_code     , :bank_name     ,
+       :file_date     , :file_number   ,
+       :version       , :service       ,
+       :filler]
     end
 
     def layout
-      "A" + [1, 1, 20, 20, 3, 20, 8, 6, 2, 17, 52].join("A")
+      'A' + [1, 1, 20, 20, 3, 20, 8, 6, 2, 17, 52].join('A')
     end
   end
 end
