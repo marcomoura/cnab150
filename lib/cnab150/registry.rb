@@ -2,11 +2,11 @@ module Cnab150
   class Registry
     def self.build(registry, parse=Cnab150::Parser)
       type = if registry.upcase.start_with?('A')
-               Cnab150::Header
+               Cnab150::Layout::Header
              elsif registry.upcase.start_with?('Z')
-               Cnab150::Trailer
+               Cnab150::Layout::Trailer
              else
-               Cnab150::Row
+               Cnab150::Layout::Row
              end.new
       new(registry, type, parse)
     end
