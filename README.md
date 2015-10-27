@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/marcomoura/cnab150.svg)](https://travis-ci.org/marcomoura/cnab150)
+[![Coverage Status](https://coveralls.io/repos/marcomoura/cnab150/badge.svg?branch=master&service=github)](https://coveralls.io/github/marcomoura/cnab150?branch=master)
+
 # Cnab150
 
 Client of cnab-150 return file.
