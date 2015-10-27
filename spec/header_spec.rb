@@ -1,23 +1,19 @@
 require 'spec_helper'
 
 describe Cnab150::Header do
-  subject { described_class.new(line).to_hash }
-  describe '.to_hash' do
-    let(:line) do
-      "A1AAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEFFFFFFGGHHHHHHHHHHHHHHHHHIJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJL"
+  context '.keys' do
+    it do
+      expect(subject.keys)
+        .to match_array [:registry_code , :registry_type ,
+                         :agreement     , :organization  ,
+                         :bank_code     , :bank_name     ,
+                         :file_date     , :file_number   ,
+                         :version       , :service       ,
+                         :filler]
     end
+  end
 
-    context 'should return a hash' do
-      it { is_expected.to include(registry_code: "A") }
-      it { is_expected.to include(registry_type: "1") }
-      it { is_expected.to include(agreement: "AAAAAAAAAAAAAAAAAAAA") }
-      it { is_expected.to include(organization: "BBBBBBBBBBBBBBBBBBBB") }
-      it { is_expected.to include(bank_name: "CCCCCCCCCCCCCCCCCCCC") }
-      it { is_expected.to include(file_date: "EEEEEEEE") }
-      it { is_expected.to include(file_number: "FFFFFF") }
-      it { is_expected.to include(version: "GG") }
-      it { is_expected.to include(service: "HHHHHHHHHHHHHHHHH") }
-      it { is_expected.to include(filler: "IJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJL") }
-    end
+  context '.layout' do
+    it { expect(subject.layout).to eql 'A1A1A20A20A3A20A8A6A2A17A52' }
   end
 end
