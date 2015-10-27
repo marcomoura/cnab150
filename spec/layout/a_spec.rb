@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Cnab150::Layout::Header do
+describe Cnab150::Layout::A do
   context '.keys' do
     it do
       expect(subject.keys)

@@ -7,7 +7,7 @@ module Cnab150
       when type.eql?('A')
         Cnab150::Layout::A
       when type.eql?('Z')
-        Cnab150::Layout::Trailer
+        Cnab150::Layout::Z
       when type.eql?('G')
         Cnab150::Layout::G
       else

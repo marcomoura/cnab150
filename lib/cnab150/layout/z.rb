@@ -1,6 +1,6 @@
 module Cnab150
   module Layout
-    class Trailer
+    class Z
       def keys
         [:registry_code, :rows, :total, :filler]
       end
