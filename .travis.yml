@@ -12,3 +12,7 @@ notifications:
       - marco.moura@gmail.com
     on_failure: change
     on_success: never
+
+addons:
+  code_climate:
+    repo_token: 598a6fd29c27425f943a2b9f0a56161954fed36f4a7e51b7821b65eafa5018f3
