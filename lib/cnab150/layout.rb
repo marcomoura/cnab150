@@ -1,6 +1,6 @@
 require 'cnab150/layout/header'
 require 'cnab150/layout/trailer'
-require 'cnab150/layout/detail'
+require 'cnab150/layout/g'
 
 module Cnab150
   module Layout
@@ -10,8 +10,10 @@ module Cnab150
         Cnab150::Layout::Header
       when type.eql?('Z')
         Cnab150::Layout::Trailer
+      when type.eql?('G')
+        Cnab150::Layout::G
       else
-        Cnab150::Layout::Detail
+        fail NotImplementedError
       end.new
     end
   end

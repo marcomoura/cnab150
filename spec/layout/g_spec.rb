@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Cnab150::Layout::Detail do
+describe Cnab150::Layout::G do
   context '.keys' do
     it do
       expect(subject.keys)
@@ -13,6 +13,6 @@ describe Cnab150::Layout::Detail do
   end
 
   context '.layout' do
-    it { expect(subject.layout).to eql 'A1A20A8A8A44A12A7A4A8A1A26A6A1' }
+    it { expect(subject.layout).to eql 'A1A20A8A8A44A12A7A8A4A1A26A5A1' }
   end
 end

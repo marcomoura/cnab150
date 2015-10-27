@@ -53,14 +53,18 @@ describe Cnab150 do
         it { is_expected.to include(account: '982300210019') }
         it { is_expected.to include(payment_date: '20151015') }
         it { is_expected.to include(credit_date: '20151016') }
+
         it { is_expected.to include(barcode: '81660000000050924772015101600000000000000075') }
         it { is_expected.to include(value: '000000000509') }
         it { is_expected.to include(service_value: '0000080') }
-        it { is_expected.to include(registry_number: '3120') }
-        it { is_expected.to include(agency: '00070159') }
+        it { is_expected.to include(registry_number: '31200007') }
+
+        it { is_expected.to include(agency: '0159') }
         it { is_expected.to include(channel: '4') }
         it { is_expected.to include(authentication: '   2') }
         it { is_expected.to include(payment_type: '') }
+
+        it { is_expected.to include(filler: '') }
       end
     end
   end
