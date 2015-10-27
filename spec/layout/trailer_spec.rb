@@ -12,4 +12,3 @@ describe Cnab150::Layout::Trailer do
     it { expect(subject.layout).to eql 'Z1Z6Z17Z126' }
   end
 end
-

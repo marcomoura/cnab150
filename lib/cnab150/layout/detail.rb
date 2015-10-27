@@ -9,7 +9,7 @@ module Cnab150
       end
 
       def layout
-        'A' + [1, 20, 8, 8, 44, 10, 5, 8, 8, 1, 26, 6, 1].join('A')
+        'A' + [1, 20, 8, 8, 44, 12, 7, 4, 8, 1, 26, 6, 1].join('A')
       end
     end
   end

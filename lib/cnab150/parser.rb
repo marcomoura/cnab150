@@ -7,7 +7,8 @@ module Cnab150
     end
 
     def initialize(line, layout)
-      @line, @layout = line, layout
+      @line = line
+      @layout = layout
     end
 
     def valid?
@@ -23,4 +24,3 @@ module Cnab150
     end
   end
 end
-

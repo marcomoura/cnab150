@@ -4,11 +4,11 @@ describe Cnab150::Layout::Header do
   context '.keys' do
     it do
       expect(subject.keys)
-        .to match_array [:registry_code , :registry_type ,
-                         :agreement     , :organization  ,
-                         :bank_code     , :bank_name     ,
-                         :file_date     , :file_number   ,
-                         :version       , :service       ,
+        .to match_array [:registry_code, :registry_type,
+                         :agreement,     :organization,
+                         :bank_code,     :bank_name,
+                         :file_date,     :file_number,
+                         :version,       :service,
                          :filler]
     end
   end
