@@ -1,13 +1,11 @@
-require 'cnab150/layout/header'
-require 'cnab150/layout/trailer'
-require 'cnab150/layout/g'
+Dir[File.dirname(__FILE__) + '/layout/*.rb'].each {|file| require file }
 
 module Cnab150
   module Layout
     def self.build(type)
       case
       when type.eql?('A')
-        Cnab150::Layout::Header
+        Cnab150::Layout::A
       when type.eql?('Z')
         Cnab150::Layout::Trailer
       when type.eql?('G')

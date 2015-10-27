@@ -1,6 +1,6 @@
 module Cnab150
   module Layout
-    class Header
+    class A
       def keys
         [:registry_code, :registry_type, :agreement,
          :organization,  :bank_code,     :bank_name,
