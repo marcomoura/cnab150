@@ -5,8 +5,8 @@ describe Cnab150 do
     expect(Cnab150::VERSION).not_to be nil
   end
 
-  describe '#parse' do
-    subject { described_class.parse(line).to_hash }
+  describe '#parse_registry' do
+    subject { described_class.parse_registry(line).to_hash }
 
     context 'when the registry is a' do
       context 'HEADER' do

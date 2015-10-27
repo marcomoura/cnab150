@@ -6,7 +6,7 @@ module Cnab150
       end
 
       def layout
-        "Z" + [1, 6, 17, 126].join("Z")
+        'Z' + [1, 6, 17, 126].join('Z')
       end
     end
   end

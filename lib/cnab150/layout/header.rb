@@ -2,10 +2,10 @@ module Cnab150
   module Layout
     class Header
       def keys
-        [:registry_code , :registry_type , :agreement ,
-         :organization  , :bank_code     , :bank_name ,
-         :file_date     , :file_number   , :version   ,
-         :service       , :filler]
+        [:registry_code, :registry_type, :agreement,
+         :organization,  :bank_code,     :bank_name,
+         :file_date,     :file_number,   :version,
+         :service,       :filler]
       end
 
       def layout
