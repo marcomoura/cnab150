@@ -14,4 +14,8 @@ module Cnab150
     type = Cnab150::Layout.build(registry.chars.first)
     Cnab150::Registry.new(registry, type)
   end
+
+  def self.header(registries)
+    registries.find { |r| r[:registry_code].eql?('A') }
+  end
 end

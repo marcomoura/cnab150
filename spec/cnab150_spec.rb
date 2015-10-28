@@ -91,4 +91,17 @@ describe Cnab150 do
                          { registry_code: 'Z', rows: '000004', total: '00000000001533612', filler: '' }]
     end
   end
+
+  context '#header' do
+    let(:registries) do
+      [
+        { registry_code: 'A'}, { registry_code: 'G'},
+        { registry_code: 'G'}, { registry_code: 'Z'}
+      ]
+    end
+
+    subject { described_class.header(registries) }
+
+    it { is_expected.to be_eql(registry_code: 'A') }
+  end
 end
