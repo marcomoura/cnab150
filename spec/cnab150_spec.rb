@@ -92,16 +92,28 @@ describe Cnab150 do
     end
   end
 
-  context '#header' do
+  context 'getters' do
     let(:registries) do
       [
-        { registry_code: 'A'}, { registry_code: 'G'},
-        { registry_code: 'G'}, { registry_code: 'Z'}
+        { registry_code: 'A' }, { registry_code: 'G', row: 1 },
+        { registry_code: 'G', row: 2 }, { registry_code: 'Z' }
       ]
     end
 
-    subject { described_class.header(registries) }
+    context '#header' do
+      subject { described_class.header(registries) }
 
-    it { is_expected.to be_eql(registry_code: 'A') }
+      it { is_expected.to be_eql(registry_code: 'A') }
+    end
+
+    context '#details' do
+      subject { described_class.details(registries) }
+
+      it do
+        is_expected
+          .to match_array([{ registry_code: 'G', row: 1 },
+                           { registry_code: 'G', row: 2 }])
+      end
+    end
   end
 end
