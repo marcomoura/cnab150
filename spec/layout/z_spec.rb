@@ -9,6 +9,6 @@ describe Cnab150::Layout::Z do
   end
 
   context '.layout' do
-    it { expect(subject.layout).to eql 'Z1Z6Z17Z126' }
+    it { expect(subject.layout).to eql 'A1A6A17A126' }
   end
 end

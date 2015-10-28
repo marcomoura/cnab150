@@ -88,7 +88,7 @@ describe Cnab150 do
         .to match_array [{ registry_code: 'A', registry_type: '2', agreement: '0000111111111', organization: 'PREF MUN XXXXXX-XYZ', bank_code: '341', bank_name: 'BANCO ITAU S.A.', file_date: '20151016', file_number: '001312', version: '03', service: '', filler: '' },
                          { registry_code: 'G', account: '982300210019', payment_date: '20151015', credit_date: '20151016', barcode: '81660000000050924772015101600000000000000075', value: '000000000509', service_value: '0000080', registry_number: '31200007', agency: '0159', channel: '4', authentication: '   2', payment_type: '', filler: '' },
                          { registry_code: 'G', account: '982300210019', payment_date: '20151015', credit_date: '20151016', barcode: '81690000000230124772015103102012002302282001', value: '000000002301', service_value: '0000080', registry_number: '31200011', agency: '8347', channel: '7', authentication: '   2', payment_type: '', filler: '' },
-                         { registry_code: 'Z', rows: '000004', total: '00000000001533612', filler: '                                                                                                                              ' }]
+                         { registry_code: 'Z', rows: '000004', total: '00000000001533612', filler: '' }]
     end
   end
 end
