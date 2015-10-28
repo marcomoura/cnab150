@@ -16,10 +16,18 @@ module Cnab150
   end
 
   def self.header(registries)
-    registries.find { |r| r[:registry_code].eql?('A') }
+    self.find(registries, 'A')
+  end
+
+  def self.trailer(registries)
+    self.find(registries, 'Z')
   end
 
   def self.details(registries)
     registries.select { |r| !(r[:registry_code].eql?('A') || r[:registry_code].eql?('Z')) }
+  end
+
+  def self.find(registries, type)
+    registries.find { |r| r[:registry_code].eql?(type) }
   end
 end

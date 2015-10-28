@@ -115,5 +115,12 @@ describe Cnab150 do
                            { registry_code: 'G', row: 2 }])
       end
     end
+
+    context '#trailer' do
+      subject { described_class.trailer(registries) }
+
+      it { is_expected.to be_eql(registry_code: 'Z') }
+    end
+
   end
 end
