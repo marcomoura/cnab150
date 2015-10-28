@@ -2,6 +2,7 @@ require 'cnab150/version'
 require 'cnab150/registry'
 require 'cnab150/parser'
 require 'cnab150/layout'
+require 'cnab150/errors'
 
 module Cnab150
   def self.parse_registries(registries)

@@ -1,5 +1,4 @@
 Dir[File.dirname(__FILE__) + '/layout/*.rb'].each {|file| require file }
-require 'cnab150/errors/layout_not_implemented_error'
 
 module Cnab150
   module Layout
