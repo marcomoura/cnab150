@@ -3,6 +3,8 @@
 [![Coverage Status](https://coveralls.io/repos/marcomoura/cnab150/badge.svg?branch=master&service=github)](https://coveralls.io/github/marcomoura/cnab150?branch=master)
 [![Code Climate](https://codeclimate.com/repos/562fd3b8e30ba04a3a00025f/badges/13ce3a3234d50e80222e/gpa.svg)](https://codeclimate.com/repos/562fd3b8e30ba04a3a00025f/feed)
 [![Inline docs](http://inch-ci.org/github/marcomoura/cnab150.svg?branch=master)](http://inch-ci.org/github/marcomoura/cnab150)
+[![Dependency Status](https://gemnasium.com/marcomoura/cnab150.svg)](https://gemnasium.com/marcomoura/cnab150)
+
 
 # Cnab150
 
