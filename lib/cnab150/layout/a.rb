@@ -1,5 +1,7 @@
 module Cnab150
   module Layout
+    # Layout of Register A
+    # This is a HEADER registry type
     class A
       def keys
         [:registry_code, :registry_type, :agreement,

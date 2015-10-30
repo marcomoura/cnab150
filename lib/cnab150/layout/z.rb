@@ -1,5 +1,7 @@
 module Cnab150
   module Layout
+    # Layout of Register Z
+    # This is a TRAILER registry
     class Z
       def keys
         [:registry_code, :rows, :total, :filler]

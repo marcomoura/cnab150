@@ -1,4 +1,6 @@
 module Cnab150
+  # The Regisry class is responsible to transform the string into a object
+  # and is the public interface.
   class Registry
     def initialize(line, registry, parse = Cnab150::Parser)
       @line = line

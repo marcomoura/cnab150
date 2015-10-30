@@ -4,6 +4,7 @@ require 'cnab150/parser'
 require 'cnab150/layout'
 require 'cnab150/errors'
 
+# The public interface of gem
 module Cnab150
   def self.parse_registries(registries)
     registries.each_with_object([]) do |r, a|

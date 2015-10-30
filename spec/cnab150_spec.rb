@@ -11,7 +11,9 @@ describe Cnab150 do
     context 'when the registry is a' do
       context 'HEADER' do
         let(:line) do
-          'A20000111111111       PREF MUN XXXXXX-XYZ 341BANCO ITAU S.A.     2015101600131203                 F                                                  F'
+          'A20000111111111       PREF MUN XXXXXX-XYZ 341BANCO ITAU S.A.     ' \
+          '2015101600131203                 F                               ' \
+          '                   F'
         end
 
         context 'should return a hash with' do
@@ -25,27 +27,46 @@ describe Cnab150 do
           it { is_expected.to include(file_number: '001312') }
           it { is_expected.to include(version: '03') }
           it { is_expected.to include(service: '') }
-          it { is_expected.to include(filler: 'F                                                  F') }
+          it do
+            is_expected
+              .to include(filler:
+                      'F                                                  F')
+          end
         end
       end
 
       describe 'TRAILER' do
         let(:line) do
-          'Z00000400000000001533612 Y                                                                                                                           Y'
+          'Z00000400000000001533612 Y                                       ' \
+          '                                                                 ' \
+          '                   Y'
         end
 
         context 'should return a hash with' do
+          let(:filter) do
+            ' Y                                                             ' \
+            '                                                              Y'
+          end
+
           it { is_expected.to include(registry_code: 'Z') }
           it { is_expected.to include(rows: '000004') }
           it { is_expected.to include(total: '00000000001533612') }
-          it { is_expected.to include(filler: ' Y                                                                                                                           Y') }
+          it do
+            is_expected
+              .to include(filler: filter)
+          end
         end
       end
     end
 
     describe 'DETAIL' do
       let(:line) do
-        'G982300210019        20151015201510168166000000005092477201510160000000000000007500000000050900000803120000701594   2                                 '
+        'G982300210019        2015101520151016816600000000509247720151016000' \
+        '0000000000007500000000050900000803120000701594   2                 ' \
+        '                '
+      end
+      let(:barcode) do
+        '81660000000050924772015101600000000000000075'
       end
 
       context 'should return a hash with' do
@@ -54,7 +75,7 @@ describe Cnab150 do
         it { is_expected.to include(payment_date: '20151015') }
         it { is_expected.to include(credit_date: '20151016') }
 
-        it { is_expected.to include(barcode: '81660000000050924772015101600000000000000075') }
+        it { is_expected.to include(barcode: barcode) }
         it { is_expected.to include(value: '000000000509') }
         it { is_expected.to include(service_value: '0000080') }
         it { is_expected.to include(registry_number: '31200007') }
@@ -74,10 +95,18 @@ describe Cnab150 do
 
     let(:lines) do
       [
-        'A20000111111111       PREF MUN XXXXXX-XYZ 341BANCO ITAU S.A.     2015101600131203                                                                     ',
-        'G982300210019        20151015201510168166000000005092477201510160000000000000007500000000050900000803120000701594   2                                 ',
-        'G982300210019        20151015201510168169000000023012477201510310201200230228200100000000230100000803120001183477   2                                 ',
-        'Z00000400000000001533612                                                                                                                              '
+        'A20000111111111       PREF MUN XXXXXX-XYZ 341BANCO ITAU S.A.     20' \
+        '15101600131203                                                     ' \
+        '                ',
+        'G982300210019        2015101520151016816600000000509247720151016000' \
+        '0000000000007500000000050900000803120000701594   2                 ' \
+        '                ',
+        'G982300210019        2015101520151016816900000002301247720151031020' \
+        '1200230228200100000000230100000803120001183477   2                 ' \
+        '                ',
+        'Z00000400000000001533612                                           ' \
+        '                                                                   ' \
+        '                '
       ]
     end
 

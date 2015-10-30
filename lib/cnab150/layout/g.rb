@@ -1,8 +1,7 @@
-# Layout of Register G
-# Return of collections identified by barcode
-
 module Cnab150
   module Layout
+    # Layout of Register G
+    # Return of collections identified by barcode
     class G
       def keys
         [:registry_code, :account, :payment_date,   :credit_date,

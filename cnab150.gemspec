@@ -13,7 +13,8 @@ Gem::Specification.new do |spec|
   spec.description   = 'Return File CNAB 150.'
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
-  spec.files         = `git ls-files -z`.split('\x0').reject { |f| f.match(%r{^(spec)/}) }
+  spec.files         = `git ls-files -z`.split("\x0")
+    .reject { |f| f.match(%r{^(spec)/}) }
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
