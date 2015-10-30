@@ -7,13 +7,22 @@ module Cnab150
     end
 
     def to_hash
-      values.to_hash(@registry.keys)
+      @_r ||= values.to_hash(@registry.keys)
+    end
+
+    def raw
+      @line
     end
 
     private
 
     def values
-      @_ ||= @parse.build(@line, @registry.layout)
+      @_v ||= @parse.build(@line, @registry.layout)
+    end
+
+    def method_missing(method)
+      return to_hash[method] if to_hash.key?(method.to_sym)
+      super
     end
   end
 end

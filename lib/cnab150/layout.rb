@@ -1,11 +1,11 @@
-Dir[File.dirname(__FILE__) + '/layout/*.rb'].each {|file| require file }
+Dir[File.dirname(__FILE__) + '/layout/*.rb'].each { |file| require file }
 
 module Cnab150
   module Layout
     def self.build(type)
-      eval("Cnab150::Layout::#{type.upcase}").new
+      Cnab150::Layout.const_get(type.upcase).new
     rescue NameError
-      fail Cnab150::Errors::LayoutNotImplementedError
+      raise Cnab150::Errors::LayoutNotImplementedError
     end
   end
 end

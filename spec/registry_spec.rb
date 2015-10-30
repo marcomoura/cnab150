@@ -1,13 +1,24 @@
 require 'spec_helper'
 
 describe Cnab150::Registry do
+  subject { described_class.new('', registry, parse) }
+
   describe '.to_hash' do
-    subject { described_class.new('', registry, parse) }
     before { subject.to_hash }
     let(:registry) { spy }
     let(:parse) { spy }
 
     it { expect(registry).to have_received(:layout) }
     it { expect(parse).to have_received(:build) }
+  end
+
+  describe 'getters' do
+    let(:registry) { double.as_null_object }
+    let(:parse) { double(build: double(to_hash: values)) }
+    let(:values) { { name: 'starlord', address: 'avenue' } }
+
+    it { expect(subject.name).to eql 'starlord' }
+    it { expect(subject.address).to eql 'avenue' }
+    it { is_expected.to_not respond_to :phone }
   end
 end

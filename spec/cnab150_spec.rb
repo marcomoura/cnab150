@@ -82,45 +82,35 @@ describe Cnab150 do
     end
 
     it { expect(subject.size).to eql 4 }
-
-    it do
-      expect(subject)
-        .to match_array [{ registry_code: 'A', registry_type: '2', agreement: '0000111111111', organization: 'PREF MUN XXXXXX-XYZ', bank_code: '341', bank_name: 'BANCO ITAU S.A.', file_date: '20151016', file_number: '001312', version: '03', service: '', filler: '' },
-                         { registry_code: 'G', account: '982300210019', payment_date: '20151015', credit_date: '20151016', barcode: '81660000000050924772015101600000000000000075', value: '000000000509', service_value: '0000080', registry_number: '31200007', agency: '0159', channel: '4', authentication: '   2', payment_type: '', filler: '' },
-                         { registry_code: 'G', account: '982300210019', payment_date: '20151015', credit_date: '20151016', barcode: '81690000000230124772015103102012002302282001', value: '000000002301', service_value: '0000080', registry_number: '31200011', agency: '8347', channel: '7', authentication: '   2', payment_type: '', filler: '' },
-                         { registry_code: 'Z', rows: '000004', total: '00000000001533612', filler: '' }]
-    end
   end
 
   context 'getters' do
     let(:registries) do
       [
-        { registry_code: 'A' }, { registry_code: 'G', row: 1 },
-        { registry_code: 'G', row: 2 }, { registry_code: 'Z' }
+        double(registry_code: 'A'), double(registry_code: 'G', row: 1),
+        double(registry_code: 'G', row: 2), double(registry_code: 'Z')
       ]
     end
 
     context '#header' do
       subject { described_class.header(registries) }
 
-      it { is_expected.to be_eql(registry_code: 'A') }
+      it { expect(subject.registry_code).to be_eql('A') }
     end
 
     context '#details' do
       subject { described_class.details(registries) }
 
-      it do
+      it 'return details registries' do
         is_expected
-          .to match_array([{ registry_code: 'G', row: 1 },
-                           { registry_code: 'G', row: 2 }])
+          .to satisfy { |d| d.all? { |r| r.registry_code.eql?('G') } }
       end
     end
 
     context '#trailer' do
       subject { described_class.trailer(registries) }
 
-      it { is_expected.to be_eql(registry_code: 'Z') }
+      it { expect(subject.registry_code).to be_eql('Z') }
     end
-
   end
 end
