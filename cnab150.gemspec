@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
 
   s.summary       = 'Return File CNAB 150.'
   s.description   = 'Return File CNAB 150.'
-  s.homepage      = "https://github.com/marcomoura/cnab150"
+  s.homepage      = 'https://github.com/marcomoura/cnab150'
 
   s.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
   s.bindir        = 'exe'
