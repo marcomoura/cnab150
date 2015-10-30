@@ -19,6 +19,14 @@ describe Cnab150::Registry do
 
     it { expect(subject.name).to eql 'starlord' }
     it { expect(subject.address).to eql 'avenue' }
-    it { is_expected.to_not respond_to :phone }
+    it { expect { subject.not_exist }.to raise_error(NoMethodError) }
+  end
+
+  describe '.raw' do
+    subject { described_class.new('2345678 987654', double, double) }
+
+    it 'returns the raw registry' do
+      expect(subject.raw).to eql '2345678 987654'
+    end
   end
 end
