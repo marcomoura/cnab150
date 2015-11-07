@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors       = ['Marco Moura']
   s.email         = ['marco.moura@gmail.com']
 
-  s.summary       = 'Return File CNAB 150.'
-  s.description   = 'Return File CNAB 150.'
+  s.summary       = 'Parser to Return File CNAB 150.'
+  s.description   = 'Parser to Return File CNAB 150.'
   s.homepage      = 'https://github.com/marcomoura/cnab150'
 
   s.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
