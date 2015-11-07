@@ -111,6 +111,20 @@ describe Cnab150 do
     end
 
     it { expect(subject.size).to eql 4 }
+
+    context '#select' do
+      subject { described_class.select(:g, lines) }
+
+      it do
+        expect(subject.first.barcode)
+          .to be_eql('81660000000050924772015101600000000000000075')
+      end
+
+      it do
+        expect(subject.last.barcode)
+          .to be_eql('81690000000230124772015103102012002302282001')
+      end
+    end
   end
 
   context 'getters' do

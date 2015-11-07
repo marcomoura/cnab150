@@ -31,6 +31,13 @@ module Cnab150
     end
   end
 
+  def self.select(type, raw)
+    registries = parse_registries(raw)
+    registries.select do |r|
+      r.registry_code.eql?(type.to_s.upcase)
+    end
+  end
+
   def self.find(registries, type)
     registries.find { |r| r.registry_code.eql?(type) }
   end
