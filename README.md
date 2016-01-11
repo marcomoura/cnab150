@@ -60,8 +60,29 @@ Or install it yourself as:
 #      { registry_code: 'G', account: '982300210019', payment_date: '20151015', credit_date: '20151016', barcode: '81660000000050924772015101600000000000000075', value: '000000000509', service_value: '0000080', registry_number: '31200007', agency: '0159', channel: '4', authentication: '   2', payment_type: '', filler: '' },
 #      { registry_code: 'G', account: '982300210019', payment_date: '20151015', credit_date: '20151016', barcode: '81690000000230124772015103102012002302282001', value: '000000002301', service_value: '0000080', registry_number: '31200011', agency: '8347', channel: '7', authentication: '   2', payment_type: '', filler: '' },
 #   ]
+```
 
+To create an new layout add a CLASS into module Cnab150::Layout,
+the Class name must be the code registry, and the methods keys and layout
 
+```
+module Cnab150
+  module Layout
+    class K
+
+      # Column names
+      # An array of symbols
+      def keys
+        [:registry_code, :column_names]
+      end
+
+      # Column positions
+      def layout
+        'K' + [1, 20, 8, 8, 44, 12, 7, 8, 4, 1, 26, 5, 1].join('K')
+      end
+    end
+  end
+end
 ```
 
 ## Development
