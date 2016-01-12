@@ -1,44 +1,47 @@
-require 'cnab150/version'
+require 'cnab150/configuration'
 require 'cnab150/registry'
 require 'cnab150/parser'
 require 'cnab150/layout'
 require 'cnab150/errors'
+require 'cnab150/version'
 
 # The public interface of gem
 module Cnab150
-  def self.parse_registries(registries)
-    registries.each_with_object([]) do |r, a|
-      a << parse_registry(r)
+  class << self
+    def parse_registries(registries)
+      registries.each_with_object([]) do |r, a|
+        a << parse_registry(r)
+      end
     end
-  end
 
-  def self.parse_registry(registry)
-    type = Cnab150::Layout.build(registry.chars.first)
-    Cnab150::Registry.new(registry, type)
-  end
-
-  def self.header(registries)
-    find(registries, 'A')
-  end
-
-  def self.trailer(registries)
-    find(registries, 'Z')
-  end
-
-  def self.details(registries)
-    registries.select do |r|
-      !(r.registry_code.eql?('A') || r.registry_code.eql?('Z'))
+    def parse_registry(registry)
+      type = Cnab150::Layout.build(registry.chars.first)
+      Cnab150::Registry.new(registry, type)
     end
-  end
 
-  def self.select(type, raw)
-    registries = parse_registries(raw)
-    registries.select do |r|
-      r.registry_code.eql?(type.to_s.upcase)
+    def header(registries)
+      find(registries, 'A')
     end
-  end
 
-  def self.find(registries, type)
-    registries.find { |r| r.registry_code.eql?(type) }
+    def trailer(registries)
+      find(registries, 'Z')
+    end
+
+    def details(registries)
+      registries.select do |r|
+        !(r.registry_code.eql?('A') || r.registry_code.eql?('Z'))
+      end
+    end
+
+    def select(type, raw)
+      registries = parse_registries(raw)
+      registries.select do |r|
+        r.registry_code.eql?(type.to_s.upcase)
+      end
+    end
+
+    def find(registries, type)
+      registries.find { |r| r.registry_code.eql?(type) }
+    end
   end
 end

@@ -1,0 +1,32 @@
+cnab150:
+  a:
+    registry_code: 1
+    registry_type: 1
+    agreement: 20
+    organization: 20
+    bank_code: 3
+    bank_name: 20
+    file_date: 8
+    file_number: 6
+    version: 2
+    service: 17
+    filler: 52
+  g:
+    registry_code: 1
+    account: 20
+    payment_date: 8
+    credit_date: 8
+    barcode: 44
+    value: 12
+    service_value: 7
+    registry_number: 8
+    agency: 4
+    channel: 1
+    authentication: 26
+    payment_type: 5
+    filler: 1
+  z:
+    registry_code: 1
+    rows: 6
+    total: 17
+    filler: 126

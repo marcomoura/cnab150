@@ -4,7 +4,7 @@ describe Cnab150::Layout do
   describe '#build' do
     context 'when the layout exists' do
       it do
-        expect(described_class.build('A')).to be_a_kind_of Cnab150::Layout::A
+        expect(described_class.build('A')).to be_a_kind_of Cnab150::Layout
       end
     end
 
