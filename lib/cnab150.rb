@@ -5,9 +5,19 @@ require 'cnab150/layout'
 require 'cnab150/errors'
 require 'cnab150/version'
 
-# The public interface of gem
-module Cnab150
+module Cnab150 #:nodoc:
   class << self
+    # Parser the array of string to Cnab150 registries.
+    # The result is an array of Cnab150::Registry instance
+    #
+    # Parameters:
+    # * <tt>registries</tt> - an array of string
+    #
+    # Example:
+    #   array_of_string = ['A20000111111111 XXXX XXXXXX-XYZ 341BANK',
+    #                      '2015101600131203                      F']
+    #   Cnab150.parse_registry(array_of_string)
+    #     #-> [ Cnab150::Registry, Cnab150::Registry]
     def parse_registries(registries)
       registries.each_with_object([]) do |r, a|
         a << parse_registry(r)
