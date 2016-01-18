@@ -9,6 +9,8 @@ module Cnab150 #:nodoc:
     end
 
     # Global settings
+    #
+    # @return a instance of Cnab150::Configuration
     def config
       @config ||= Cnab150::Configuration.new
     end

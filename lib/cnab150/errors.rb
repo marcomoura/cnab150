@@ -1,5 +1,5 @@
 module Cnab150
-  # The custom Errors
+  # @api private
   module Errors
     LayoutNotImplementedError = Class.new(StandardError)
   end

@@ -1,5 +1,5 @@
 module Cnab150
-  # The Parser class is responsible to split up the string into a hash.
+  # @api private
   class Parser
     def self.build(line, layout)
       new(line, layout)
