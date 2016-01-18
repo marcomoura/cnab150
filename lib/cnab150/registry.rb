@@ -2,7 +2,6 @@ module Cnab150
   # The Regisry class is responsible to transform the string into a object
   # and is the public interface.
   class Registry
-
     # Returns a new instance of Registry
     #
     # @param line [String]
